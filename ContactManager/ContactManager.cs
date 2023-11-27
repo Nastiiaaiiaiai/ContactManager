@@ -35,5 +35,35 @@ namespace ContactManeger
             if (!ContactsGroup.Remove(contactgroup))
                 throw new InvalidOperationException("There is NO such contact group!");
         }
+
+        public void AddNewContact(string name, string email, string contactGroup)
+        {
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(contactGroup))
+                throw new ArgumentException("Name, email, and contact group cannot be empty");
+
+            if (!ContactsGroup.Contains(contactGroup))
+                throw new InvalidOperationException("Contact group does not exist");
+
+            // Перевірка на наявність контакту з такою ж електронною адресою
+            if (Contacts.Any(c => c.Email == email))
+                throw new InvalidOperationException("Contact with this email already exists");
+
+            var newContact = new Contact(name, contactGroup, email);
+            Contacts.Add(newContact);
+        }
+
+        public void RemoveContact(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+                throw new ArgumentException("Email cannot be empty");
+
+            var contactToRemove = Contacts.FirstOrDefault(c => c.Email == email);
+            if (contactToRemove == null)
+                throw new InvalidOperationException("Contact with this email does not exist");
+
+            Contacts.Remove(contactToRemove);
+        }
     }
+
+
 }
