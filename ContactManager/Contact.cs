@@ -11,23 +11,27 @@ namespace ContactManeger
         public string Name { get; }
         public string ContactGroup { get; }
         public string Email { get; }
-        public bool Favoriete { get; set; }
+        public bool Favorite { get; private set; }
 
-        private Contact() { }
-
-        public Contact(string name, string contactgroup, string email, bool favoriete) : this()
+        public Contact(string name, string contactgroup, string email, bool favorite = false)
         {
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(contactgroup) || string.IsNullOrEmpty(email))
+                throw new ArgumentException("Name, contact group, and email cannot be empty");
+
             Name = name;
             ContactGroup = contactgroup;
             Email = email;
-            Favoriete = favoriete;
+            Favorite = favorite;
         }
-        public Contact(string name, string contactgroup, string email) : this()
+
+        public void AddToFavorites()
         {
-            Name = name;
-            ContactGroup = contactgroup;
-            Email = email;
-            Favoriete = false;
+            Favorite = true;
+        }
+
+        public void RemoveFromFavorites()
+        {
+            Favorite = false;
         }
     }
 }

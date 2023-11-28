@@ -63,7 +63,24 @@ namespace ContactManeger
 
             Contacts.Remove(contactToRemove);
         }
-    }
 
+        public void AddContactToFavorites(string email)
+        {
+            var contact = Contacts.FirstOrDefault(c => c.Email == email);
+            if (contact == null)
+                throw new InvalidOperationException("Contact with this email does not exist");
+
+            contact.AddToFavorites();
+        }
+
+        public void RemoveContactFromFavorites(string email)
+        {
+            var contact = Contacts.FirstOrDefault(c => c.Email == email);
+            if (contact == null)
+                throw new InvalidOperationException("Contact with this email does not exist");
+
+            contact.RemoveFromFavorites();
+        }
+    }
 
 }
