@@ -81,6 +81,12 @@ namespace ContactManeger
 
             contact.RemoveFromFavorites();
         }
+
+        public IEnumerable<Contact> GetFavoritesSortedByNameDescending()
+        {
+            var favoriteContacts = Contacts.Where(c => c.Favorite).OrderByDescending(c => c.Name);
+            return favoriteContacts;
+        }
     }
 
 }

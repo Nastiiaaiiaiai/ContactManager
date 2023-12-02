@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestContactManager", "TestC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestContacts", "TestContact\TestContacts.csproj", "{2A85DF53-CF59-45F0-AF8E-AA5A95077411}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFavorite", "TestFavorite\TestFavorite.csproj", "{C8AB5B12-B91E-4001-AC94-AA6D8A3CEFA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestFavorite", "TestFavorite\TestFavorite.csproj", "{C8AB5B12-B91E-4001-AC94-AA6D8A3CEFA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFavoriteSorts", "TestFavoriteSorts\TestFavoriteSorts.csproj", "{16E115F9-68FA-49B8-9975-63CC865DBA72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{C8AB5B12-B91E-4001-AC94-AA6D8A3CEFA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8AB5B12-B91E-4001-AC94-AA6D8A3CEFA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8AB5B12-B91E-4001-AC94-AA6D8A3CEFA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16E115F9-68FA-49B8-9975-63CC865DBA72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E115F9-68FA-49B8-9975-63CC865DBA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E115F9-68FA-49B8-9975-63CC865DBA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E115F9-68FA-49B8-9975-63CC865DBA72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
