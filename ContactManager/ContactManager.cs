@@ -87,6 +87,18 @@ namespace ContactManeger
             var favoriteContacts = Contacts.Where(c => c.Favorite).OrderByDescending(c => c.Name);
             return favoriteContacts;
         }
+
+        public IEnumerable<Contact> GetContactsForGroupSortedByNameDescending(string contactGroup)
+        {
+            if (string.IsNullOrEmpty(contactGroup))
+                throw new ArgumentException("Contact group cannot be empty");
+
+            if (!ContactsGroup.Contains(contactGroup))
+                throw new InvalidOperationException("Contact group does not exist");
+
+            var contactsInGroup = Contacts.Where(c => c.ContactGroup == contactGroup).OrderByDescending(c => c.Name);
+            return contactsInGroup;
+        }
     }
 
 }
