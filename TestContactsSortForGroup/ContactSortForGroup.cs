@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using ContactManeger;
+using System.Linq;
 
 namespace TestContactsSortForGroup
 {
