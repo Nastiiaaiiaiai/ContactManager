@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ConsoleContactManager": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
