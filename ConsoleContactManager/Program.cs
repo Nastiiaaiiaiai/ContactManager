@@ -36,6 +36,37 @@ class Program
             {
                 Console.WriteLine($"- {group}");
             }
+
+            // Visual separation
+            Console.WriteLine("----------------------");
+
+            // Adding new contacts
+            contactManager.AddNewContact("John Doe", "john@example.com", "Family");
+            contactManager.AddNewContact("Alice Smith", "alice@example.com", "Family");
+
+            // Displaying contacts in a specific group
+            string groupToDisplay = "Family";
+            Console.WriteLine($"\nContacts in '{groupToDisplay}' group:");
+            foreach (var contact in contactManager.GetContactsForGroupSortedByNameDescending(groupToDisplay))
+            {
+                Console.WriteLine($"Name: {contact.Name}, Email: {contact.Email}");
+            }
+
+            // Visual separation
+            Console.WriteLine("----------------------");
+
+            // Removing a contact
+            string emailToRemove = "john@example.com"; // Email to remove
+            contactManager.RemoveContact(emailToRemove);
+
+            Console.WriteLine($"\n'{emailToRemove}' contact removed.");
+
+            // Displaying updated contacts in a specific group
+            Console.WriteLine($"\nUpdated contacts in '{groupToDisplay}' group:");
+            foreach (var contact in contactManager.GetContactsForGroupSortedByNameDescending(groupToDisplay))
+            {
+                Console.WriteLine($"Name: {contact.Name}, Email: {contact.Email}");
+            }
         }
         catch (Exception ex)
         {
