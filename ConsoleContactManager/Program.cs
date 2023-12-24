@@ -21,9 +21,6 @@ class Program
                 Console.WriteLine($"- {group}");
             }
 
-            // Visual separation
-            Console.WriteLine("----------------------");
-
             // Removing a contact group
             string groupToRemove = "Work"; // Group to remove
             contactManager.RemoveContactGroup(groupToRemove);
@@ -52,9 +49,6 @@ class Program
                 Console.WriteLine($"Name: {contact.Name}, Email: {contact.Email}");
             }
 
-            // Visual separation
-            Console.WriteLine("----------------------");
-
             // Removing a contact
             string emailToRemove = "john@example.com"; // Email to remove
             contactManager.RemoveContact(emailToRemove);
@@ -67,6 +61,34 @@ class Program
             {
                 Console.WriteLine($"Name: {contact.Name}, Email: {contact.Email}");
             }
+
+            // Visual separation
+            Console.WriteLine("----------------------");
+
+            // Adding contacts to favorites
+            contactManager.AddContactToFavorites("alice@example.com");
+            Console.WriteLine("\n'alice@example.com' added to favorites.");
+
+            // Displaying updated contacts in a specific group
+            Console.WriteLine($"\nUpdated contacts in '{groupToDisplay}' group:");
+            foreach (var contact in contactManager.GetContactsForGroupSortedByNameDescending(groupToDisplay))
+            {
+                Console.WriteLine($"Name: {contact.Name}, Email: {contact.Email}, Favorite: {contact.Favorite}");
+            }
+
+            // Removing contacts from favorites
+            contactManager.RemoveContactFromFavorites("alice@example.com");
+            Console.WriteLine("\n'alice@example.com' removed from favorites.");
+
+            // Displaying updated contacts in a specific group
+            Console.WriteLine($"\nUpdated contacts in '{groupToDisplay}' group:");
+            foreach (var contact in contactManager.GetContactsForGroupSortedByNameDescending(groupToDisplay))
+            {
+                Console.WriteLine($"Name: {contact.Name}, Email: {contact.Email}, Favorite: {contact.Favorite}");
+            }
+
+            // Visual separation
+            Console.WriteLine("----------------------");
         }
         catch (Exception ex)
         {
