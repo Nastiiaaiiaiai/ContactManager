@@ -89,6 +89,22 @@ class Program
 
             // Visual separation
             Console.WriteLine("----------------------");
+            // Add new contacts and mark them as favorites
+            contactManager.AddNewContact("Emma Johnson", "emma@example.com", "Friends");
+            contactManager.AddNewContact("Michael Brown", "michael@example.com", "Family");
+
+            contactManager.AddContactToFavorites("emma@example.com");
+            contactManager.AddContactToFavorites("michael@example.com");
+
+            // Displaying favorite contacts sorted by name in descending order
+            Console.WriteLine("\nFavorite contacts sorted by name in descending order:");
+            foreach (var contact in contactManager.GetFavoritesSortedByNameDescending())
+            {
+                Console.WriteLine($"Name: {contact.Name}, Email: {contact.Email}, Favorite: {contact.Favorite}");
+            }
+
+            // Visual separation
+            Console.WriteLine("----------------------");
         }
         catch (Exception ex)
         {
