@@ -105,6 +105,22 @@ class Program
 
             // Visual separation
             Console.WriteLine("----------------------");
+
+            // Adding a large number of contacts to the "Family" group
+            contactManager.AddNewContact("Sophia Williams", "sophia@example.com", "Family");
+            contactManager.AddNewContact("Daniel Miller", "daniel@example.com", "Family");
+            contactManager.AddNewContact("Olivia Davis", "olivia@example.com", "Family");
+
+            // Display contacts in the "Family" group sorted by name in descending order
+            string groupToSort = "Family";
+            Console.WriteLine($"\nContacts in '{groupToSort}' group sorted by name in descending order:");
+            foreach (var contact in contactManager.GetContactsForGroupSortedByNameDescending(groupToSort))
+            {
+                Console.WriteLine($"Name: {contact.Name}, Email: {contact.Email}");
+            }
+
+            // Visual separation
+            Console.WriteLine("----------------------");
         }
         catch (Exception ex)
         {
